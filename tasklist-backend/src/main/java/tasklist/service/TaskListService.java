@@ -1,8 +1,9 @@
-package todo.service;
+package tasklist.service;
 
 import org.springframework.stereotype.Service;
-import todo.models.Task;
-import todo.models.TaskList;
+import tasklist.models.Task;
+import tasklist.models.TaskList;
+
 
 import java.util.*;
 
