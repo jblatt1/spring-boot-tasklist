@@ -1,11 +1,13 @@
 apply plugin: 'java'
 apply plugin: 'idea'
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile "org.springframework.boot:spring-boot-starter-web:1.4.1.RELEASE"
-    testCompile "junit:junit:4/12"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.4.1.RELEASE'
 }
