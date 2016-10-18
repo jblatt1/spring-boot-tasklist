@@ -1,4 +1,4 @@
-package todo.models;
+package tasklist.models;
 
 import java.util.List;
 

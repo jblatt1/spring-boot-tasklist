@@ -1,10 +1,9 @@
-package todo.controllers;
+package tasklist.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import todo.models.Task;
-import todo.models.TaskList;
-import todo.service.TaskListService;
+import tasklist.models.TaskList;
+import tasklist.service.TaskListService;
 
 import java.util.*;
 
