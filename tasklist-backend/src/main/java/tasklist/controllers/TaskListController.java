@@ -16,7 +16,7 @@ public class TaskListController {
     private TaskListService taskListService;
 
     @RequestMapping(method = RequestMethod.POST)
-    public @ResponseBody TaskList createTaskList(@RequestBody TaskList taskList) {
+    public TaskList createTaskList(@RequestBody TaskList taskList) {
         return this.taskListService.createTaskList(taskList);
     }
 
