@@ -27,15 +27,15 @@ public class TaskListService {
         return taskLists;
     }
 
-    public void createTaskList(TaskList taskList) {
-
+    public TaskList createTaskList(TaskList taskList) {
+    	return null;
     }
 
     public TaskList getList(String id) {
         return null;
     }
 
-    public void updateList(TaskList taskList) {
-
+    public TaskList updateList(TaskList taskList) {
+    	return null;
     }
 }
