@@ -1,6 +1,7 @@
 package tasklist.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import tasklist.models.TaskList;
 import tasklist.service.TaskListService;
@@ -15,8 +16,8 @@ public class TaskListController {
     private TaskListService taskListService;
 
     @RequestMapping(method = RequestMethod.POST)
-    public void createTaskList(@RequestBody TaskList taskList) {
-        this.taskListService.createTaskList(taskList);
+    public TaskList createTaskList(@RequestBody TaskList taskList) {
+        return this.taskListService.createTaskList(taskList);
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -30,7 +31,7 @@ public class TaskListController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public void updateList(@PathVariable("id") String id, @RequestBody TaskList taskList) {
-        this.taskListService.updateList(taskList);
+    public TaskList updateList(@PathVariable("id") String id, @RequestBody TaskList taskList) {
+        return this.taskListService.updateList(taskList);
     }
 }
