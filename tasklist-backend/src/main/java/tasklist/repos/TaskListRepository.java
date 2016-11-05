@@ -2,16 +2,20 @@ package tasklist.repos;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.data.repository.CrudRepository;
 
-import tasklist.entities.TaskListEntity;
+import tasklist.models.TaskList;
 
-public interface TaskListRepository extends CrudRepository<TaskListEntity, Long>{
+/**
+ *A Spring Data JPA Repository interface for CRUD operations on 
+ *{@link TaskList} objects. No implementation is needed as the the 
+ *queries are constructed and ran by Spring based off of the method signatures.
+ *
+ */
+@Transactional
+public interface TaskListRepository extends CrudRepository<TaskList, String>{
 	
-	public TaskListEntity saveTaskList(TaskListEntity taskListEntity);
-	public TaskListEntity getOneById(String id);
-	public List<TaskListEntity> findAllTaskLists();
-	public TaskListEntity updateTaskList(TaskListEntity taskListEntity);
-	public void deleteTaskList(String id);
 	
 }

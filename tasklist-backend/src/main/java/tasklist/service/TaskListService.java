@@ -1,41 +1,35 @@
 package tasklist.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tasklist.models.Task;
 import tasklist.models.TaskList;
-
+import tasklist.repos.TaskListRepository;
 
 import java.util.*;
 
 @Service
 public class TaskListService {
-
+	@Autowired
+	private TaskListRepository taskListRepo;
+	
     public Collection<TaskList> getAllLists() {
-        HashSet<TaskList> taskLists = new HashSet<>();
-        List<Task> listOfTasks = new ArrayList<Task>();
-        Task task1 = new Task();
-        task1.setId("taskId");
-        task1.setComplete(false);
-        task1.setDesc("Some task");
-        task1.setCreatedDate(new Date());
-        listOfTasks.add(task1);
-        TaskList taskList1 = new TaskList();
-        taskList1.setId("Test");
-        taskList1.setName("Hello World");
-        taskList1.setTaskList(listOfTasks);
-        taskLists.add(taskList1);
-        return taskLists;
+        return (Collection<TaskList>) taskListRepo.findAll();
     }
 
     public TaskList createTaskList(TaskList taskList) {
-    	return null;
+    	return taskListRepo.save(taskList);
     }
 
     public TaskList getList(String id) {
-        return null;
+    	return taskListRepo.findOne(id);
     }
 
     public TaskList updateList(TaskList taskList) {
-    	return null;
+    	return taskListRepo.save(taskList);
+    }
+    
+    public void delete(String id){
+    	 taskListRepo.delete(id);
     }
 }

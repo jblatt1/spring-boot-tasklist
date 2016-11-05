@@ -1,16 +1,46 @@
 package tasklist.models;
 
-import java.util.Calendar;
 import java.util.Date;
 
-public class Task {
-    
-    private String id;
-    private String desc;
-    private Date createdDate;
-    private boolean complete;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
-    public String getId() {
+import org.hibernate.annotations.GenericGenerator;
+
+@Entity
+public class Task {
+	
+	@Id
+	@GeneratedValue(generator = "uuid")
+	@GenericGenerator(name = "uuid", strategy = "uuid2")
+	@Column(name="TASK_ID")
+	private String id;
+	
+	@NotNull
+    private Date createdDate;
+	
+    private boolean complete;
+    
+    @NotNull
+    private String description;
+    
+    public Task(){
+    	
+    }
+    
+    public Task(String id, String description, Date createdDate, boolean complete) {
+		this.id = id;
+		this.description = description;
+		this.createdDate = createdDate;
+		this.complete = complete;
+	}
+
+	public String getId() {
         return id;
     }
 
@@ -18,12 +48,12 @@ public class Task {
         this.id = id;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Date getCreatedDate() {
@@ -41,4 +71,5 @@ public class Task {
     public void setComplete(boolean complete) {
         this.complete = complete;
     }
+    
 }

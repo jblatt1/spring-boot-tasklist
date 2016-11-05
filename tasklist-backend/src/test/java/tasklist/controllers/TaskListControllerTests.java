@@ -43,7 +43,7 @@ public class TaskListControllerTests {
 		newList.setName("List");
 		Task task = new Task();
 		task.setCreatedDate(new Date());
-		task.setDesc("We have some things to do.");
+		task.setDescription("We have some things to do.");
 		newList.setTaskList(Arrays.asList(task));
 		ObjectMapper mapper = new ObjectMapper();
 		given(this.taskListService.createTaskList(newList)).willReturn(newList);
